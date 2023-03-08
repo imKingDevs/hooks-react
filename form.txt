@@ -1,0 +1,42 @@
+import './App.css';
+import React, { useState } from 'react';
+
+const App = () => {
+
+    const [name, setname] = useState();
+    const [passWord, setpass] = useState();
+
+    const [myName, setMyName] = useState();
+    const [myPassWord, setMyPass] = useState();
+
+    const nameEvent = (event) => {
+        setname(event.target.value);
+    }
+    const passEvent = (event) => {
+        setpass(event.target.value);
+    }
+    const onSubmit = (event) => {
+        event.preventDefault();
+        setMyName(name);
+        setMyPass(passWord);
+    }
+
+    return (
+        <>
+            <div>
+                <form onSubmit={onSubmit}>
+                    <h1>Hello {myName} {myPassWord}</h1>
+                    <input type='text' placeholder='Enter Your Name'
+                        onChange={nameEvent} value={name}/>
+                    <br />
+                    <input type='password' placeholder='Enter Your Password'
+                        onChange={passEvent} value={passWord}/>
+                    <br />
+                    <button type='submit' >Submit</button>
+                </form>
+            </div>
+        </>
+    )
+}
+
+export default App;
